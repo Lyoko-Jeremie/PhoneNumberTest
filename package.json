@@ -1,0 +1,46 @@
+{
+  "name": "DatebaseGisDataTransfer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jeremie",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "npm run build && npm run watch",
+    "build": "npm run build-ts",
+    "compress": "gulp compress",
+    "run_once": "node dist/index.js",
+    "serve": "nodemon dist/index.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,green.bold\" \"npm run watch-ts\" \"npm run serve\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/index.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.18",
+    "@types/js-yaml": "^3.9.1",
+    "@types/mysql": "^2.15.0",
+    "@types/xregexp": "^3.0.30",
+    "bluebird": "^3.5.1",
+    "js-yaml": "^3.10.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "socks5-client": "^1.2.6",
+    "xregexp": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.63",
+    "@types/node": "^7.0.12",
+    "concurrently": "^3.4.0",
+    "gulp": "^3.9.1",
+    "gulp-gzip": "^1.4.0",
+    "gulp-zip": "^4.0.0",
+    "nodemon": "^1.11.0",
+    "shelljs": "^0.7.7",
+    "typescript": "^2.5.3"
+  }
+}
